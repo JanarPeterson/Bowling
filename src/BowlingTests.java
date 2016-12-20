@@ -26,4 +26,11 @@ public class BowlingTests {
 		frame = new Frame(10, 0);
 		assertThat(frame.isStrike(), is(true));
 	}
+
+	@Test
+	public void detectSpare(){
+		frame = new Frame(3, 7);
+		assertThat(frame.isStrike(), is(true));
+	}
+	
 }
