@@ -53,7 +53,7 @@ public class Frame {
 
 
 	private void setSpare(int score) {
-		this.spare = spare;
+		this.spare = score == 10;
 	}
 
 
