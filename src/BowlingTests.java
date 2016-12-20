@@ -8,7 +8,7 @@ public class BowlingTests {
 	Frame frame = new Frame();
 	
 	@Test
-	public void setScoreToFrame(){
+	public void insertScoreToFrame(){
 		frame.setFramescore(1, 6);
 		assertThat(frame.getFramescore(), is(7));
 	}
