@@ -5,12 +5,17 @@ public class Frame {
 	Roll firstroll;
 	Roll secondroll;
 
+	boolean strike = false;
+	boolean spare = false;
+
 
 
 	public Frame(int firstroll, int secondroll) {
 		this.firstroll = new Roll(firstroll);
 		this.secondroll = new Roll(secondroll);
 		this.setFramescore();
+		this.setStrike(firstroll);
+		this.setSpare(this.getFramescore());
 	}
 	
 
@@ -32,6 +37,26 @@ public class Frame {
 	}
 	
 	
+	public boolean isStrike() {
+		return this.strike;
+	}
+
+
+	private void setStrike(int score) {
+		this.strike = score == 10;
+	}
+
+
+	public boolean isSpare() {
+		return spare;
+	}
+
+
+	private void setSpare(int score) {
+		this.spare = spare;
+	}
+
+
 	class Roll{
 		
 		
@@ -56,4 +81,5 @@ public class Frame {
 		
 		
 	}
+
 }
