@@ -6,6 +6,7 @@ import static org.hamcrest.CoreMatchers.is;
 public class BowlingTests {
 	
 	Frame frame;
+	Game game;
 	
 	@Test
 	public void insertScoreToFrame(){
@@ -20,5 +21,9 @@ public class BowlingTests {
 		assertThat(frame.getFramescore(), is(0));
 	}
 	
-	
+	@Test
+	public void detectStrike(){
+		frame = new Frame(10, 0);
+		assertThat(frame.isStrike(), is(true));
+	}
 }
