@@ -5,11 +5,13 @@ import static org.hamcrest.CoreMatchers.is;
 
 public class BowlingTests {
 	
-	Frame frame = new Frame();
+	Frame frame;
 	
 	@Test
 	public void insertScoreToFrame(){
-		frame.setFramescore(1, 6);
-		assertThat(frame.getFramescore(), is(7));
+		frame = new Frame(4,0);
+		assertThat(frame.getFramescore(), is(4));
 	}
+	
+	
 }

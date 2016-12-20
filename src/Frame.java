@@ -2,16 +2,35 @@
 public class Frame {
 
 	int framescore = 0;
+	Roll firstroll;
+	Roll secondroll;
+
+
+
+	public Frame(int firstroll, int secondroll) {
+		this.firstroll = new Roll(firstroll);
+		this.secondroll = new Roll(secondroll);
+		this.setFramescore();
+	}
 	
-	public Object getFramescore() {
-		// TODO Auto-generated method stub
-		return null;
+
+	public Frame() {
+		this.firstroll = new Roll();
+		this.secondroll = new Roll();
+		this.setFramescore();
 	}
 
-	public void setFramescore(int i, int j) {
+
+	public int getFramescore() {
 		// TODO Auto-generated method stub
-		
+		return framescore;
 	}
+
+	public void setFramescore() {
+		// TODO Auto-generated method stub
+		this.framescore = this.firstroll.getRollscore() + this.secondroll.getRollscore();
+	}
+	
 	
 	class Roll{
 		
