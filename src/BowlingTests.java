@@ -33,4 +33,10 @@ public class BowlingTests {
 		assertThat(frame.isSpare(), is(true));
 	}
 	
+	@Test
+	public void gameHas9Frames(){
+		game = new Game();
+		assertThat(game.frames.size(), is(true));
+	}
+	
 }
