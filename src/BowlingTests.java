@@ -13,5 +13,12 @@ public class BowlingTests {
 		assertThat(frame.getFramescore(), is(4));
 	}
 	
+
+	@Test
+	public void emptyFrameScoreIsNull(){
+		frame = new Frame();
+		assertThat(frame.getFramescore(), is(0));
+	}
+	
 	
 }
