@@ -39,7 +39,7 @@ public class BowlingTests {
 	@Test
 	public void gameHas9Frames(){
 		game = new Game();
-		assertThat(game.frames.size(), is(9));
+		assertThat(game.getFrames().size(), is(9));
 	}
 	
 
@@ -48,9 +48,6 @@ public class BowlingTests {
 		game = new Game();
 		assertThat(game.getGamescore(), is(0));
 	}
-	
-	
-	
 	
 	
 	

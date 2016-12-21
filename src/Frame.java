@@ -1,18 +1,18 @@
 
 public class Frame {
 
-	int framescore = 0;
-	Roll firstroll;
-	Roll secondroll;
+	private int framescore = 0;
+	private Roll firstroll;
+	private Roll secondroll;
 
-	boolean strike = false;
-	boolean spare = false;
+	private boolean strike = false;
+	private boolean spare = false;
 
 
 
 	public void insertRolls(int firstroll, int secondroll) {
-		this.firstroll.rollscore = firstroll;
-		this.secondroll.rollscore = secondroll;
+		this.firstroll.setRollscore(firstroll);
+		this.secondroll.setRollscore(secondroll);
 		this.setFramescore();
 		this.setStrike(firstroll);
 		this.setSpare(this.getFramescore());
@@ -32,7 +32,7 @@ public class Frame {
 		return framescore;
 	}
 
-	public void setFramescore() {
+	private void setFramescore() {
 		// TODO Auto-generated method stub
 		this.framescore = this.firstroll.getRollscore() + this.secondroll.getRollscore();
 	}
@@ -72,11 +72,11 @@ public class Frame {
 
 		private int rollscore = 0;
 
-		private int getRollscore() {
+		public int getRollscore() {
 			return rollscore;
 		}
 
-		private void setRollscore(int rollscore) {
+		public void setRollscore(int rollscore) {
 			this.rollscore = rollscore;
 		}
 		
