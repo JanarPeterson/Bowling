@@ -33,11 +33,24 @@ public class Game {
 
 	private void calcGamescore() {
 		for (int i = 0; i < frames.size(); i++) {
-			if (this.getFrames().get(i).isStrike()) {
-				this.getFrames().get(i).setFramescore(calcStrike(i));
+
+			if (i < frames.size() - 2) {
+				if (this.getFrames().get(i).isStrike()) {
+					this.getFrames().get(i).setFramescore(calcStrike(i));
+				} else if (this.getFrames().get(i).isSpare()) {
+					this.getFrames().get(i).setFramescore(calcSpare(i));
+				}
+			} else if (i < frames.size() - 1) {
+				if (this.getFrames().get(i).isSpare()) {
+					this.getFrames().get(i).setFramescore(calcSpare(i));
+				}
 			}
 			this.gamescore += this.frames.get(i).getFramescore();
 		}
+	}
+
+	private int calcSpare(int i) {
+		return this.getFrames().get(i).getFramescore() + this.getFrames().get(i + 1).getFramescore();
 	}
 
 	private int calcStrike(int i) {
