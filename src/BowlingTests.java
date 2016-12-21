@@ -42,6 +42,16 @@ public class BowlingTests {
 		assertThat(game.frames.size(), is(9));
 	}
 	
+
+	@Test
+	public void gamescoreStartsAtZero(){
+		game = new Game();
+		assertThat(game.getGamescore(), is(0));
+	}
+	
+	
+	
+	
 	
 	
 }
