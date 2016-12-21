@@ -10,9 +10,9 @@ public class Frame {
 
 
 
-	public Frame(int firstroll, int secondroll) {
-		this.firstroll = new Roll(firstroll);
-		this.secondroll = new Roll(secondroll);
+	public void insertRolls(int firstroll, int secondroll) {
+		this.firstroll.rollscore = firstroll;
+		this.secondroll.rollscore = secondroll;
 		this.setFramescore();
 		this.setStrike(firstroll);
 		this.setSpare(this.getFramescore());
@@ -24,6 +24,7 @@ public class Frame {
 		this.secondroll = new Roll();
 		this.setFramescore();
 	}
+	
 
 
 	public int getFramescore() {

@@ -10,7 +10,8 @@ public class BowlingTests {
 	
 	@Test
 	public void insertScoreToFrame(){
-		frame = new Frame(4,0);
+		frame = new Frame();
+		frame.insertRolls(4, 0);
 		assertThat(frame.getFramescore(), is(4));
 	}
 	
@@ -23,13 +24,15 @@ public class BowlingTests {
 	
 	@Test
 	public void detectStrike(){
-		frame = new Frame(10, 0);
+		frame = new Frame();
+		frame.insertRolls(10, 0);
 		assertThat(frame.isStrike(), is(true));
 	}
 
 	@Test
 	public void detectSpare(){
-		frame = new Frame(3, 7);
+		frame = new Frame();
+		frame.insertRolls(7, 3);
 		assertThat(frame.isSpare(), is(true));
 	}
 	
@@ -38,5 +41,7 @@ public class BowlingTests {
 		game = new Game();
 		assertThat(game.frames.size(), is(9));
 	}
+	
+	
 	
 }
