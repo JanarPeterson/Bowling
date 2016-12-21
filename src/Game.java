@@ -27,6 +27,7 @@ public class Game {
 	}
 
 	public int getGamescore() {
+		this.calcGamescore();
 		return gamescore;
 	}
 
