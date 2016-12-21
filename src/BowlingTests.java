@@ -48,7 +48,14 @@ public class BowlingTests {
 		game = new Game();
 		assertThat(game.getGamescore(), is(0));
 	}
-	
-	
+
+
+	@Test
+	public void calculatesCorrectGamescore(){
+		game = new Game();
+		game.getFrames().get(0).insertRolls(4, 5);
+		game.getFrames().get(1).insertRolls(10, 0);
+		assertThat(game.getGamescore(), is(19));
+	}
 	
 }
