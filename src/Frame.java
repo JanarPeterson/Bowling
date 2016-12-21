@@ -13,7 +13,7 @@ public class Frame {
 	public void insertRolls(int firstroll, int secondroll) {
 		this.firstroll.setRollscore(firstroll);
 		this.secondroll.setRollscore(secondroll);
-		this.setFramescore();
+		this.calcFramescore();
 		this.setStrike(firstroll);
 		this.setSpare(this.getFramescore());
 	}
@@ -22,7 +22,7 @@ public class Frame {
 	public Frame() {
 		this.firstroll = new Roll();
 		this.secondroll = new Roll();
-		this.setFramescore();
+		this.calcFramescore();
 	}
 	
 
@@ -32,11 +32,15 @@ public class Frame {
 		return framescore;
 	}
 
-	private void setFramescore() {
+	private void calcFramescore() {
 		// TODO Auto-generated method stub
 		this.framescore = this.firstroll.getRollscore() + this.secondroll.getRollscore();
 	}
 	
+	public void setFramescore(int framescore) {
+		this.framescore = framescore;
+	}
+
 	
 	public boolean isStrike() {
 		return this.strike;
