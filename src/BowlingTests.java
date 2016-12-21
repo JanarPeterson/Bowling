@@ -58,4 +58,18 @@ public class BowlingTests {
 		assertThat(game.getGamescore(), is(19));
 	}
 	
+
+
+	@Test
+	public void calculatesStrike(){
+		game = new Game();
+		game.getFrames().get(0).insertRolls(4, 5);
+		game.getFrames().get(1).insertRolls(10, 0);
+		game.getFrames().get(2).insertRolls(6, 2);
+		game.getFrames().get(3).insertRolls(6, 4);
+		assertThat(game.getGamescore(), is(55));
+	}
+	
+	
+	
 }
