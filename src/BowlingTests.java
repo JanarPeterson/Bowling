@@ -61,13 +61,24 @@ public class BowlingTests {
 
 
 	@Test
-	public void calculatesStrike(){
+	public void calculatesCorrrectStrike(){
 		game = new Game();
 		game.getFrames().get(0).insertRolls(4, 5);
 		game.getFrames().get(1).insertRolls(10, 0);
 		game.getFrames().get(2).insertRolls(6, 2);
 		game.getFrames().get(3).insertRolls(6, 4);
 		assertThat(game.getGamescore(), is(55));
+	}
+	
+
+
+	@Test
+	public void calculatesCorrectSpare(){
+		game = new Game();
+		game.getFrames().get(0).insertRolls(4, 5);
+		game.getFrames().get(1).insertRolls(1, 9);
+		game.getFrames().get(2).insertRolls(8, 0);
+		assertThat(game.getGamescore(), is(35));
 	}
 	
 	
