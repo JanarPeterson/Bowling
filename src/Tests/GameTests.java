@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.is;
 public class GameTests {
 
 	public void run() {
-		gameHas9Frames();
+		gameHas10Frames();
 		gamescoreStartsAtZero();
 		calculatesCorrectGamescore();
 		calculatesCorrrectStrike();
@@ -20,9 +20,9 @@ public class GameTests {
 	Game game;
 
 	@Test
-	public void gameHas9Frames() {
+	public void gameHas10Frames() {
 		game = new Game();
-		assertThat(game.getFrames().size(), is(9));
+		assertThat(game.getFrames().size(), is(10));
 	}
 
 	@Test
@@ -57,5 +57,12 @@ public class GameTests {
 		game.getFrames().get(2).insertRolls(8, 0);
 		assertThat(game.getGamescore(), is(35));
 	}
-
+	
+	@Test
+	public void hasExtraRoll(){
+		game.getFrames().get(9).insertRolls(10, 4);
+		game.getFrames().get(9).insertExtraRoll(8);
+		assertThat(game.getGamescore(),is(22));
+	}
+	
 }
