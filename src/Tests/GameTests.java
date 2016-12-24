@@ -66,4 +66,26 @@ public class GameTests {
 		assertThat(game.getGamescore(),is(22));
 	}
 	
+	@Test
+	public void correctMaxScore(){
+		game = new Game();
+		game.getFrames().get(0).insertRolls(10, 0);
+		game.getFrames().get(1).insertRolls(10, 0);
+		game.getFrames().get(2).insertRolls(10, 0);
+		game.getFrames().get(3).insertRolls(10, 0);
+		game.getFrames().get(4).insertRolls(10, 0);
+		game.getFrames().get(5).insertRolls(10, 0);
+		game.getFrames().get(6).insertRolls(10, 0);
+		game.getFrames().get(7).insertRolls(10, 0);
+		game.getFrames().get(8).insertRolls(10, 0);
+		game.getFrames().get(9).insertRolls(10, 10);
+		game.getFrames().get(9).insertExtraRoll(10);
+		assertThat(game.getGamescore(), is(300));
+		
+	}
 }
+
+
+
+
+
