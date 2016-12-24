@@ -60,6 +60,7 @@ public class GameTests {
 	
 	@Test
 	public void hasExtraRoll(){
+		game = new Game();
 		game.getFrames().get(9).insertRolls(10, 4);
 		game.getFrames().get(9).insertExtraRoll(8);
 		assertThat(game.getGamescore(),is(22));

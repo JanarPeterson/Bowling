@@ -23,6 +23,13 @@ public class FrameTests {
 		frame.insertRolls(4, 0);
 		assertThat(frame.getFramescore(), is(4));
 	}
+	
+	@Test
+	public void extraRoll(){
+		frame = new Frame();
+		frame.insertExtraRoll(6);
+		assertThat(frame.getExtraroll().getRollscore(), is(6));
+	}
 
 	@Test
 	public void emptyFrameScoreIsNull() {

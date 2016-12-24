@@ -5,11 +5,19 @@ public class Frame {
 	private int framescore = 0;
 	private Roll firstroll;
 	private Roll secondroll;
-
+	private Roll extraroll;
+	
 	private boolean strike = false;
 	private boolean spare = false;
 
 
+	public Frame() {
+		this.firstroll = new Roll();
+		this.secondroll = new Roll();
+		this.extraroll = new Roll();
+		this.calcFramescore();
+	}
+	
 
 	public void insertRolls(int firstroll, int secondroll) {
 		this.firstroll.setRollscore(firstroll);
@@ -19,13 +27,9 @@ public class Frame {
 		this.setSpare(this.getFramescore());
 	}
 	
-
-	public Frame() {
-		this.firstroll = new Roll();
-		this.secondroll = new Roll();
-		this.calcFramescore();
+	public void insertExtraRoll(int extraroll){
+		this.extraroll.setRollscore(extraroll);
 	}
-	
 
 
 	public int getFramescore() {
@@ -35,7 +39,7 @@ public class Frame {
 
 	private void calcFramescore() {
 		// TODO Auto-generated method stub
-		this.framescore = this.firstroll.getRollscore() + this.secondroll.getRollscore();
+		this.framescore = this.firstroll.getRollscore() + this.secondroll.getRollscore() + this.extraroll.getRollscore();
 	}
 	
 	public void setFramescore(int framescore) {
@@ -61,9 +65,41 @@ public class Frame {
 	private void setSpare(int score) {
 		this.spare = score == 10;
 	}
+	
 
 
-	class Roll{
+	public Roll getFirstroll() {
+		return firstroll;
+	}
+
+
+	public void setFirstroll(Roll firstroll) {
+		this.firstroll = firstroll;
+	}
+
+
+	public Roll getSecondroll() {
+		return secondroll;
+	}
+
+
+	public void setSecondroll(Roll secondroll) {
+		this.secondroll = secondroll;
+	}
+
+
+	public Roll getExtraroll() {
+		return extraroll;
+	}
+
+
+	public void setExtraroll(Roll extraroll) {
+		this.extraroll = extraroll;
+	}
+
+
+
+	 public class Roll{
 		
 		
 		public Roll() {
