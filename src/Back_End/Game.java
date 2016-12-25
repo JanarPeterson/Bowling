@@ -65,10 +65,12 @@ public class Game {
 	private int calcExtraSpare() {
 		// TODO Auto-generated method stub
 		return this.getFrames().get(9).getFirstroll().getRollscore()
-				+ this.getFrames().get(9).getSecondroll().getRollscore();
+				+ this.getFrames().get(9).getSecondroll().getRollscore()
+				+ this.getFrames().get(9).getExtraroll().getRollscore();
 	}
 
 	private int calcExtraStrike() {
+		this.getFrames().get(9).setSpare(false);
 		// TODO Auto-generated method stub
 		return this.getFrames().get(9).getFirstroll().getRollscore()
 				+ this.getFrames().get(9).getSecondroll().getRollscore()

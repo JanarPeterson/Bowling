@@ -61,10 +61,36 @@ public class GameTests {
 	@Test
 	public void hasExtraRoll(){
 		game = new Game();
-		game.getFrames().get(9).insertRolls(10, 4);
+		game.getFrames().get(9).insertRolls(10, 10);
 		game.getFrames().get(9).insertExtraRoll(8);
-		assertThat(game.getGamescore(),is(22));
+		assertThat(game.getGamescore(),is(28));
 	}
+	
+	
+	@Test
+	public void extraSpare(){
+		game = new Game();
+		game.getFrames().get(9).insertRolls(2, 8);
+		game.getFrames().get(9).insertExtraRoll(8);
+		assertThat(game.getGamescore(),is(18));
+	}
+	
+	@Test
+	public void extraStrike(){
+		game = new Game();
+		game.getFrames().get(9).insertRolls(10, 10);
+		game.getFrames().get(9).insertExtraRoll(6);
+		assertThat(game.getGamescore(),is(26));
+	}
+	
+	@Test
+	public void ninthStrike(){
+		game = new Game();
+		game.getFrames().get(8).insertRolls(0, 10);
+		game.getFrames().get(9).insertRolls(8, 2);
+		assertThat(game.getGamescore(),is(23));
+	}
+	
 	
 	@Test
 	public void correctMaxScore(){
