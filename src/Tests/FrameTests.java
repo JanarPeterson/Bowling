@@ -12,6 +12,7 @@ public class FrameTests {
 
 	public void run() {
 		insertScoreToFrame();
+		extraRoll();
 		emptyFrameScoreIsNull();
 		detectStrike();
 		detectSpare();

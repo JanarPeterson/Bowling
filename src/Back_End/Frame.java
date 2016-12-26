@@ -27,6 +27,7 @@ public class Frame {
 
 	public void insertExtraRoll(int extraroll) {
 		this.extraroll.setRollscore(extraroll);
+		this.calcFramescore();
 	}
 
 	public int getFramescore() {
@@ -88,6 +89,12 @@ public class Frame {
 		// TODO Auto-generated method stub
 		this.spare = spare;
 
+	}
+
+	@Override
+	public String toString() {
+		return "Frame [framescore=" + framescore + ", firstroll=" + firstroll + ", secondroll=" + secondroll
+				+ ", extraroll=" + extraroll + ", strike=" + strike + ", spare=" + spare + "]";
 	}
 
 	public class Roll {

@@ -15,6 +15,11 @@ public class GameTests {
 		calculatesCorrectGamescore();
 		calculatesCorrrectStrike();
 		calculatesCorrectSpare();
+		hasExtraRoll();
+		extraStrike();
+		extraSpare();
+		ninthStrike();
+		correctMaxScore();
 	}
 
 	Game game;
@@ -71,24 +76,25 @@ public class GameTests {
 	public void extraSpare(){
 		game = new Game();
 		game.getFrames().get(9).insertRolls(2, 8);
-		game.getFrames().get(9).insertExtraRoll(8);
-		assertThat(game.getGamescore(),is(18));
+		game.getFrames().get(9).insertExtraRoll(2);
+		assertThat(game.getGamescore(),is(12));
 	}
 	
 	@Test
 	public void extraStrike(){
 		game = new Game();
-		game.getFrames().get(9).insertRolls(10, 10);
+		game.getFrames().get(9).insertRolls(10, 7);
 		game.getFrames().get(9).insertExtraRoll(6);
-		assertThat(game.getGamescore(),is(26));
+		assertThat(game.getGamescore(),is(23));
 	}
 	
 	@Test
 	public void ninthStrike(){
 		game = new Game();
-		game.getFrames().get(8).insertRolls(0, 10);
+		game.getFrames().get(8).insertRolls(10, 0);
 		game.getFrames().get(9).insertRolls(8, 2);
-		assertThat(game.getGamescore(),is(23));
+		game.getFrames().get(9).insertExtraRoll(9);
+		assertThat(game.getGamescore(),is(39));
 	}
 	
 	
@@ -109,6 +115,8 @@ public class GameTests {
 		assertThat(game.getGamescore(), is(300));
 		
 	}
+
+	
 }
 
 

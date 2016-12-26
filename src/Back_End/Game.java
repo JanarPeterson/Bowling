@@ -36,29 +36,66 @@ public class Game {
 		for (int i = 0; i < frames.size(); i++) {
 
 			switch (i) {
+			case 7:
+				if (this.getFrames().get(i).isStrike()) {
+					this.gamescore += calcEightStrke();
+				} else if (this.getFrames().get(i).isSpare()) {
+					this.gamescore += calcSpare(i);
+				} else {
+					this.gamescore += this.frames.get(i).getFramescore();
+				}
+				break;
 			case 8:
 				if (this.getFrames().get(i).isStrike()) {
-					this.getFrames().get(i).setFramescore(calcNinthStrike());
+					this.gamescore += calcNinthStrike();
 				} else if (this.getFrames().get(i).isSpare()) {
-					this.getFrames().get(i).setFramescore(calcSpare(i));
+					this.gamescore += calcNinthSpare();
+				} else {
+					this.gamescore += this.frames.get(i).getFramescore();
 				}
 				break;
 			case 9:
 				if (this.getFrames().get(i).isStrike()) {
-					this.getFrames().get(i).setFramescore(calcExtraStrike());
+					this.gamescore += calcExtraStrike();
 				} else if (this.getFrames().get(i).isSpare()) {
-					this.getFrames().get(i).setFramescore(calcExtraSpare());
+					this.gamescore += calcExtraSpare();
+				} else {
+					this.gamescore += this.frames.get(i).getFramescore();
 				}
 				break;
 			default:
 				if (this.getFrames().get(i).isStrike()) {
-					this.getFrames().get(i).setFramescore(calcStrike(i));
+					this.gamescore += calcStrike(i);
 				} else if (this.getFrames().get(i).isSpare()) {
-					this.getFrames().get(i).setFramescore(calcSpare(i));
+					this.gamescore += calcSpare(i);
+				} else {
+					this.gamescore += this.frames.get(i).getFramescore();
 				}
 				break;
 			}
-			this.gamescore += this.frames.get(i).getFramescore();
+
+		}
+	}
+
+	private int calcEightStrke() {
+		// TODO Auto-generated method stub
+		if (this.getFrames().get(9).isSpare() || this.getFrames().get(9).isStrike()) {
+			return this.getFrames().get(7).getFramescore() + this.getFrames().get(8).getFramescore()
+					+ this.getFrames().get(9).getFirstroll().getRollscore();
+		} else {
+			return this.getFrames().get(7).getFramescore() + this.getFrames().get(8).getFramescore()
+					+ this.getFrames().get(9).getFramescore();
+		}
+	}
+
+	private int calcNinthSpare() {
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+		if (this.getFrames().get(9).isSpare() || this.getFrames().get(9).isStrike()) {
+			return this.getFrames().get(8).getFramescore() + this.getFrames().get(9).getFirstroll().getRollscore()
+					+ this.getFrames().get(9).getSecondroll().getRollscore();
+		} else {
+			return this.getFrames().get(8).getFramescore() + this.getFrames().get(9).getFramescore();
 		}
 	}
 
