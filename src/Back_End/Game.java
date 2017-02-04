@@ -33,6 +33,7 @@ public class Game {
 	}
 
 	private void calcGamescore() {
+		gamescore == 0;
 		for (int i = 0; i < frames.size(); i++) {
 
 			switch (i) {
